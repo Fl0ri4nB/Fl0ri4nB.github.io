@@ -10,7 +10,6 @@
 	
 	<style>
 	 
-
 td.result  {   border: 2px solid white; text-align: center;}
 tr td.result:first-child { border-top-left-radius: 10px;   border: 2px solid white; text-align: center;}
 tr td.result:first-child { border-bottom-left-radius: 10px;  border: 2px solid white; text-align: center;}
@@ -26,8 +25,9 @@ table {
 	text-align:center;
 	}
 
-	 .search_table{
+	 .search_table td{
         text-align:left;
+		 border: 2px solid white;
     }
 	
 	
@@ -106,7 +106,7 @@ table {
         
 					cell_pict.innerHTML = "<img src='"+product.imageUrl + "' width=40px height=40px>" ;
 					cell_pict.classList.add('col_pict');
-					cell_pict.classList.add('result');
+					
                     cell_sportName.innerHTML =  product.name;
 					
                     cell_link.innerHTML =" <a href='https://ticket-resale.paris2024.org"+ product.url.path + "' target=_blank>Lien</a>";
@@ -116,6 +116,15 @@ table {
                     cell_location.innerHTML=product.typeAttributes.liveEntertainment.location.name;
 
 					cell_date.innerHTML =date.toLocaleDateString('fr-FR', { weekday: 'short', day: '2-digit', month: 'short' , hour: '2-digit', minute: '2-digit'}); ; //product.typeAttributes.liveEntertainment.startDate;
+					
+					
+					cell_pict.classList.add('result');
+					cell_sportName.classList.add('result');
+					cell_link.classList.add('result');
+					cell_pict.classList.add('result');
+					cell_price.classList.add('result');
+					cell_location.classList.add('result');
+					cell_date.classList.add('result');
 					
 					
 					
@@ -142,8 +151,8 @@ table {
 <body onload="javascript:loadJO()">
 
 <table border=1 class="search_table"><tr>
-<td class="search_table">Filtre Sport : </td>
-<td> <input type=text id="filter_sport" value="Athlétisme;Tir à l'arc; Volleyball de plage;"><input type=checkbox id="use_filter_sport"checked></td>
+<td >Filtre Sport : </td>
+<td >  <input type=text id="filter_sport" value="Athlétisme;Tir à l'arc; Volleyball de plage;"><input type=checkbox id="use_filter_sport"checked></td>
 </tr><tr>
 <td>Places :</td>
 <td><select id="nb_tickets"><option>1</option><option selected>2</option><option>3</option></select> </td>
@@ -157,16 +166,16 @@ table {
 
 <br><br><br>
 
-    <table border="1" 
+    <table border="1">
         <thead>
             <tr class="header_style">
 			<th width=50px > </th>
-                <th>Sport</th>
+                <th class="header_style">Sport</th>
                
-				 <th>Prix</th>
-				  <th >Date</th>
-				   <th >Lieu</th>
-				   <th>Lien</th>
+				 <th class="header_style">Prix</th>
+				  <th class="header_style">Date</th>
+				   <th class="header_style">Lieu</th>
+				   <th class="header_style" >Lien</th>
             </tr>
         </thead>
         <tbody id="productTable">
