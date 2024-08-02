@@ -58,29 +58,39 @@ table .search_table .table_result {
 	
 	.selectedFilterSport
 	{
+		border-top-left-radius:5px;    solid white;
+	border-bottom-right-radius: 5px;    solid white;
+	text-align:center;
 	cursor: pointer;
 	margin:5px;
 	background-color:green;
 	color:white;
+	padding:3px;
 	
 	}
 	
-	.grid-container {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  background-color: lightgrey;
-  padding: 3px;
-}
+
 
 
 	.notSelectedFilterSport
 	{
+	border-top-left-radius: 5px;   solid white;
+	border-bottom-right-radius: 5px;   solid white;
+	text-align:center;
 	cursor: pointer;
 	margin:5px;
-	background-color:red;
+	background-color:lightgrey;
 	color:white;
-	
+	padding:3px;
 	}
+	
+	
+		.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: white;
+  padding: 3px;
+}
 	
 </style>
 
@@ -108,7 +118,7 @@ parts.forEach(sportName => {
 
 function initListCurrentSportDisplayed(sportName)
 	{
-	alert(sportName);
+	
 	if(document.getElementById('filerSport_'+ sportName))
 	{
 		document.getElementById('filerSport_'+ sportName).classList.remove('notSelectedFilterSport');
@@ -239,9 +249,10 @@ function initListCurrentSportDisplayed(sportName)
 </head>
 <body onload="javascript:loader()">
 
-<table class="search_table"><tr>
-<td >Filtre Sport : </td>
-<td >  <input type=text id="filter_sport" value="Athlétisme;Volleyball de plage;"><input type=checkbox id="use_filter_sport"checked>
+<table class="search_table" align=center><tr>
+<td >Filtre Sport : <br>
+(<input type=checkbox id="use_filter_sport"checked>)</td>
+<td >  <input type=text id="filter_sport" value="Athlétisme;Volleyball de plage;" hidden>
 <div id="listSport" class="grid-container">
 
 <span class='notSelectedFilterSport' id='filerSport_Athlétisme' onclick="javascript:isSportDisplayed('Athlétisme')">Athlétisme</span>
@@ -283,7 +294,6 @@ function initListCurrentSportDisplayed(sportName)
 
 
 
-</table>
 </div>
 
 
@@ -293,11 +303,9 @@ function initListCurrentSportDisplayed(sportName)
 <td><select id="nb_tickets"><option>1</option><option selected>2</option><option>3</option></select> </td>
 </tr><tr>
 <td> Prix max : </td> <td><input type=text id="max_amount" value="110" size = 3></td>
-</tr><tr>
-<td> 
-<input type=button onclick="javascript:loadJO()" value = "Chercher"></td></tr>
+</tr>
 </table>
-
+<p align=center><input type=button onclick="javascript:loadJO()" value = "Chercher"></p>
 
 <br>
 
