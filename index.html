@@ -111,7 +111,7 @@ table {
 					
                     cell_link.innerHTML =" <a href='https://ticket-resale.paris2024.org"+ product.url.path + "' target=_blank>Lien</a>";
 					
-					cell_price.innerHTML = product.typeAttributes.offer.startingPrice;
+					cell_price.innerHTML = Math.ceil(product.typeAttributes.offer.startingPrice);
 					
                     cell_location.innerHTML=product.typeAttributes.liveEntertainment.location.name;
 
@@ -164,7 +164,7 @@ table {
 </table>
 
 
-<br><br><br>
+<br>
 
     <table border="1">
         <thead>
@@ -178,6 +178,7 @@ table {
 				   <th class="header_style" >Lien</th>
             </tr>
         </thead>
+		<hr>
         <tbody id="productTable">
             <!-- Table content will be dynamically generated here -->
         </tbody>
