@@ -11,22 +11,25 @@
 	<style>
 	 
 
-td  {   border: 2px solid white; text-align: center;}
-tr td:first-child { border-top-left-radius: 10px;   border: 2px solid white; text-align: center;}
-tr td:first-child { border-bottom-left-radius: 10px;  border: 2px solid white; text-align: center;}
-tr td:last-child { border-top-right-radius: 10px;  border: 2px solid white; text-align: center;}
-tr td:last-child { border-bottom-right-radius: 10px;  border: 2px solid white; text-align: center;}
+td.result  {   border: 2px solid white; text-align: center;}
+tr td.result:first-child { border-top-left-radius: 10px;   border: 2px solid white; text-align: center;}
+tr td.result:first-child { border-bottom-left-radius: 10px;  border: 2px solid white; text-align: center;}
+tr td.result:last-child { border-top-right-radius: 10px;  border: 2px solid white; text-align: center;}
+tr td.result:last-child { border-bottom-right-radius: 10px;  border: 2px solid white; text-align: center;}
 
 
 table {
-     width: 75%;
+     width: 100%;
      border-collapse: collapse;
 	 
 	 border: 2px solid white;
 	text-align:center;
 	}
-	 
 
+	 .search_table{
+        text-align:left;
+    }
+	
 	
 	 .blue-bg {
         background-color: AntiqueWhite;
@@ -103,6 +106,7 @@ table {
         
 					cell_pict.innerHTML = "<img src='"+product.imageUrl + "' width=40px height=40px>" ;
 					cell_pict.classList.add('col_pict');
+					cell_pict.classList.add('result');
                     cell_sportName.innerHTML =  product.name;
 					
                     cell_link.innerHTML =" <a href='https://ticket-resale.paris2024.org"+ product.url.path + "' target=_blank>Lien</a>";
@@ -137,20 +141,23 @@ table {
 </head>
 <body onload="javascript:loadJO()">
 
+<table border=1 class="search_table"><tr>
+<td class="search_table">Filtre Sport : </td>
+<td> <input type=text id="filter_sport" value="Athlétisme;Tir à l'arc; Volleyball de plage;"><input type=checkbox id="use_filter_sport"checked></td>
+</tr><tr>
+<td>Places :</td>
+<td><select id="nb_tickets"><option>1</option><option selected>2</option><option>3</option></select> </td>
+</tr><tr>
+<td> Prix max : </td> <td><input type=text id="max_amount" value="110" size = 3></td>
+</tr><tr>
+<td> 
+<input type=button onclick="javascript:loadJO()" value = "Chercher"></td></tr>
+</table>
 
-<input type=button onclick="javascript:loadJO()" value = "Chercher">
-<select id="nb_tickets">
- <option>1</option>
- <option selected>2</option>
-  
-  <option>3</option>
-</select> 
-<input type=checkbox id="use_filter_sport"checked>
-<input type=text id="filter_sport" value="Athlétisme;Tir à l'arc; Volleyball de plage;">
-<input type=text id="max_amount" value="110" size = 3>
-<br><br><br><br>
 
-    <table border="1">
+<br><br><br>
+
+    <table border="1" 
         <thead>
             <tr class="header_style">
 			<th width=50px > </th>
